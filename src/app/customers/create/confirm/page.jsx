@@ -4,33 +4,20 @@ import fetchCustomer from "./fetchCustomer";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Suspense } from "react";
-// import ConfirmPage from "../../delete/[id]/confirm/page";
 
-// export default function ConfirmPage() {
-//   const router = useRouter();
-//   const customer_id = useSearchParams().get("customer_id");
-//   const [customer, setCustomer] = useState(null);
-
-//   useEffect(() => {
-//     const fetchAndSetCustomer = async () => {
-//       const customerData = await fetchCustomer(customer_id);
-//       setCustomer(customerData);
-//     };
-//     fetchAndSetCustomer();
-//   }, []);
-  
 export default function ConfirmPageWrapper() {
   return (
-    <Suspense fallback = {<div>loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <ConfirmPage />
     </Suspense>
   );
 }
 
-function ConfirmPage(){
+function ConfirmPage() {
   const router = useRouter();
   const customer_id = useSearchParams().get("customer_id");
   const [customer, setCustomer] = useState(null);
+
   useEffect(() => {
     const fetchAndSetCustomer = async () => {
       const customerData = await fetchCustomer(customer_id);

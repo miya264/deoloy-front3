@@ -1,9 +1,9 @@
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 import OneCustomerInfoCard from "@/app/components/one_customer_info_card.jsx";
 
 async function fetchCustomer(id) {
   const res = await fetch(
-    process.env.API_ENDPOINT + `/customers?customer_id=${id}`
+    process.env.NEXT_PUBLIC_API_ENDPOINT + `/customers?customer_id=${id}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch customer");
